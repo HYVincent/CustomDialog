@@ -34,7 +34,10 @@ public class MultipleSelectDialog extends BaseDialog {
     private RecyclerView rlv;
     private LinearLayout llCancel,llOk;
     private TextView tvCancel,tvTitle,tvOk;
-    private String cancelText,titleText,okText;
+    private String cancelText = "取消";
+    private String titleText;
+    private String okText= "确定";
+
     private List<SelectEntity> data = new ArrayList<>();
     private MultipleSelectAdapter adapter;
     private MultipleSelectResultOnClickListener multipleSelectResultOnClickListener;

@@ -39,7 +39,9 @@ public class SingleSelectDialog extends BaseDialog {
     private RecyclerView rlv;
     private LinearLayout llCancel,llOk;
     private TextView tvCancel,tvTitle,tvOk;
-    private String cancelText,titleText,okText;
+    private String cancelText = "取消";
+    private String titleText;
+    private String okText= "确定";
     private SingleSelectAdapter adapter;
     private List<SelectEntity> data = new ArrayList<>();
     private String resultStr;//选择的结果
