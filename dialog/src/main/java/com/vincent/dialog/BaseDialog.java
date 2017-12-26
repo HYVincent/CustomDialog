@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.view.Gravity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -38,8 +39,6 @@ public class BaseDialog extends Dialog {
     @StyleRes
     private int animStyle;
 
-    @LayoutRes
-    protected int layoutId;
 
     public BaseDialog(@NonNull Context context) {
         super(context,R.style.MyDialogBgIsTransparent);
@@ -54,6 +53,16 @@ public class BaseDialog extends Dialog {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initParams();
+    }
+
+    private void initParams() {
         Window window = getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         if(width == 0){
@@ -77,19 +86,19 @@ public class BaseDialog extends Dialog {
         setCanceledOnTouchOutside(outCancel);
     }
 
-
-
-
-    public void setMargin(int margin) {
+    public BaseDialog setMargin(int margin) {
         this.margin = margin;
+        return this;
     }
 
-    public void setWidth(int width) {
+    public BaseDialog setWidth(int width) {
         this.width = width;
+        return this;
     }
 
-    public void setHeight(int height) {
+    public BaseDialog setHeight(int height) {
         this.height = height;
+        return this;
     }
 
     /**

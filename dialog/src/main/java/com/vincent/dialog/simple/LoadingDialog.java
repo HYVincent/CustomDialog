@@ -1,4 +1,4 @@
-package com.vincent.dialog;
+package com.vincent.dialog.simple;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.vincent.dialog.BaseDialog;
+import com.vincent.dialog.R;
 
 /**
  * @author Vincent QQ:1032006226
@@ -25,7 +28,7 @@ public class LoadingDialog extends BaseDialog {
 
 
     public LoadingDialog(@NonNull Context context) {
-        super(context,R.style.MyDialogBgIsWhite);
+        super(context, R.style.MyDialogBgIsWhite);
     }
 
     @Override

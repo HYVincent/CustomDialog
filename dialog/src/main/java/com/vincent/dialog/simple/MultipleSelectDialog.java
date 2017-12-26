@@ -1,7 +1,9 @@
-package com.vincent.dialog;
+package com.vincent.dialog.simple;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+
+import com.vincent.dialog.BaseDialog;
 
 /**
  * @author Vincent QQ:1032006226
@@ -12,7 +14,7 @@ import android.support.annotation.NonNull;
  * @date 2017/12/26 10:02
  */
 
-public class MultipleSelectDialog extends BaseDialog{
+public class MultipleSelectDialog extends BaseDialog {
 
 
     public MultipleSelectDialog(@NonNull Context context) {
