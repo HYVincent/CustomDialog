@@ -1,4 +1,4 @@
-package com.vincent.custom_dialog;
+package com.vincent.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,6 +11,9 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.vincent.dialog.util.DpUtil;
+import com.vincent.dialog.util.ScreenUtils;
+
 
 /**
  * @author Administrator QQ:1032006226
@@ -21,8 +24,7 @@ import android.view.WindowManager;
  * @date 2017/12/8 14:24
  */
 
-
-public abstract class BaseDialog extends Dialog {
+public class BaseDialog extends Dialog {
 
     private static final String TAG = BaseDialog.class.getSimpleName();
 
@@ -42,6 +44,7 @@ public abstract class BaseDialog extends Dialog {
     public BaseDialog(@NonNull Context context) {
         super(context,R.style.MyDialogBgIsTransparent);
     }
+
 
     public BaseDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
@@ -68,7 +71,10 @@ public abstract class BaseDialog extends Dialog {
         layoutParams.height = height;
         layoutParams.width = width;
         layoutParams.dimAmount = dimAmount;
+        //设置dialog进入、退出的动画
+        window.setWindowAnimations(animStyle);
         window.setAttributes(layoutParams);
+        setCanceledOnTouchOutside(outCancel);
     }
 
 

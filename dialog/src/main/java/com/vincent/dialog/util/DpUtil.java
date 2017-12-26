@@ -1,4 +1,4 @@
-package com.vincent.custom_dialog;
+package com.vincent.dialog.util;
 
 import android.content.Context;
 
