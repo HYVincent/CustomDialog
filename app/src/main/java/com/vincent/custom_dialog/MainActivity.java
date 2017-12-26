@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SingleSelectDialog singleSelectDialog;
     private MultipleSelectDialog multipleSelectDialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,15 +45,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showLoadingDialog();
                 break;
             case R.id.btn_single_select:
-                //TODO 使用RecycleView实现单选
                 showSingleDialog();
                 break;
             case R.id.btn_multiple_select:
-                //TODO 使用RecycleView实现多选
-
+                showMultipleSelectDialog();
                 break;
             default:break;
         }
+    }
+
+    private void showMultipleSelectDialog() {
+        multipleSelectDialog = new MultipleSelectDialog(MainActivity.this);
+        multipleSelectDialog.setHeight(ScreenUtils.getScreenHeight(MainActivity.this)/2);
+        multipleSelectDialog.setMargin(12);
+        multipleSelectDialog.setCancelText("不选")
+                .setTitleText("多选测试")
+                .setOkText("选好了")
+                .setData(getMultipleData())
+                .setMultipleSelectResultOnClickListener(new MultipleSelectDialog.MultipleSelectResultOnClickListener() {
+                    @Override
+                    public void result(List<String> data) {
+                        Log.d(TAG, "result : "+String.valueOf(data.size()));
+                    }
+                })
+                .show();
     }
 
     private void showSingleDialog() {
@@ -95,6 +111,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         woman.setItemContent("女");
         data.add(man);
         data.add(woman);
+        return data;
+    }
+
+
+    public List<SelectEntity> getMultipleData() {
+        List<SelectEntity> data = new ArrayList<>();
+        for (int i=0;i<20;i++){
+            SelectEntity selectEntity = new SelectEntity();
+            selectEntity.setItemContent("item "+String.valueOf(i));
+            data.add(selectEntity);
+        }
         return data;
     }
 }
