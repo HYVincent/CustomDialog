@@ -33,4 +33,8 @@
         <item name="android:windowExitAnimation">@anim/exit_anim</item>
     </style>
 
+    <style name="custom_checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/my_checkbox</item>
+    </style>
+
 </resources>

@@ -19,6 +19,7 @@
         android:clickable="false"
         android:layout_centerVertical="true"
         android:layout_marginRight="12dp"
+        style="@style/custom_checkbox"
         android:layout_alignParentRight="true"
         android:id="@+id/item_single_select_checkbox"
         android:layout_width="wrap_content"
