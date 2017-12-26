@@ -1,4 +1,13 @@
 ### 自定义Dialog显示
 
+#### version 1.0.1
+date 2017年12月26日16:47:16  
+- 添加滚动列表选择SlideListDialog  
+
+
 #### version 1.0.0
-封装有加载提示dialog、单选dialog、多选dialog，普通消息提示dialog(未完成)
+data 2017年12月26日15:48:55
+- LoadingDialog
+- SingleSelectDialog(单选)
+- MultipleSelectDialog(多选)
+- OrdinaryMsgDialog(未完成)

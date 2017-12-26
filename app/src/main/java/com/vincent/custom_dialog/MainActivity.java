@@ -10,6 +10,7 @@ import com.vincent.dialog.entity.SelectEntity;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
 import com.vincent.dialog.simple.SingleSelectDialog;
+import com.vincent.dialog.simple.SlideListDialog;
 import com.vincent.dialog.util.MyToast;
 import com.vincent.dialog.util.ScreenUtils;
 
@@ -19,10 +20,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog;
+    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnSlideListDialog;
     private LoadingDialog loadingDialog;
     private SingleSelectDialog singleSelectDialog;
     private MultipleSelectDialog multipleSelectDialog;
+    private SlideListDialog slideListDialog;
 
 
     @Override
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSingleSelectDialog.setOnClickListener(this);
         btnMultipleSelectDialog = findViewById(R.id.btn_multiple_select);
         btnMultipleSelectDialog.setOnClickListener(this);
+        btnSlideListDialog = findViewById(R.id.btn_slide_list);
+        btnSlideListDialog.setOnClickListener(this);
     }
 
     @Override
@@ -50,8 +54,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_multiple_select:
                 showMultipleSelectDialog();
                 break;
+            case R.id.btn_slide_list:
+                showSlideListDialog();
+                break;
             default:break;
         }
+    }
+
+    private void showSlideListDialog() {
+        slideListDialog = new SlideListDialog(MainActivity.this);
+        slideListDialog.setShowBottom(true);
+        slideListDialog.setTitleText("选择性别")
+                .setData(getSexData2())
+                .setSlideListDialogResultListener(new SlideListDialog.SlideListDialogResultListener() {
+                    @Override
+                    public void result(int position) {
+                        MyToast.toastMsg(MainActivity.this,getSexData2().get(position));
+                    }
+                })
+                .show();
+    }
+
+    private List<String> getSexData2() {
+        List<String> data = new ArrayList<>();
+        data.add("男");
+        data.add("女");
+        return data;
     }
 
     private void showMultipleSelectDialog() {

@@ -27,6 +27,13 @@
         android:text="Multiple Select Dialog"/>
 
     <Button
+        android:id="@+id/btn_slide_list"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Slide List Dialog"/>
+
+    <Button
         android:id="@+id/btn_ordinary_msg"
         android:textAllCaps="false"
         android:layout_width="match_parent"
