@@ -55,22 +55,26 @@ public class MultipleSelectAdapter extends RecyclerView.Adapter<MultipleSelectAd
     public void onBindViewHolder(final MultipleSelectViewHolder holder, final int position) {
         final SelectEntity selectEntity = data.get(position);
         holder.tvContent.setText(selectEntity.getItemContent());
-        holder.cb.setChecked(selectEntity.isSelect());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(selectEntity.isSelect()){
                     selectEntity.setSelect(false);
                     holder.cb.setChecked(false);
-                    holder.tvContent.setTextColor(ContextCompat.getColor(mContext,R.color.color_gray_999999));
                 }else {
                     selectEntity.setSelect(true);
                     holder.cb.setChecked(true);
-                    holder.tvContent.setTextColor(ContextCompat.getColor(mContext,R.color.color_black_333333));
                 }
                 onItemClickListener.onItemClick(view,position);
             }
         });
+        if(selectEntity.isSelect()){
+            holder.cb.setChecked(true);
+            holder.tvContent.setTextColor(ContextCompat.getColor(mContext,R.color.color_black_333333));
+        }else {
+            holder.cb.setChecked(false);
+            holder.tvContent.setTextColor(ContextCompat.getColor(mContext,R.color.color_gray_999999));
+        }
         if(position == data.size() -1){
             holder.line.setVisibility(View.GONE);
         }else {

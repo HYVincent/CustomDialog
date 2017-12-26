@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public List<SelectEntity> getSexData() {
         List<SelectEntity> data = new ArrayList<>();
-        /*for (int i=0;i<10;i++){
+        /*for (int i=0;i<100;i++){
             SelectEntity entity = new SelectEntity();
             entity.setItemContent("item "+String.valueOf(i));
             data.add(entity);
