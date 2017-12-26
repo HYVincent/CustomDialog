@@ -33,7 +33,7 @@ public class BaseDialog extends Dialog {
     private int width;//宽度
     private int height;//高度
     private float dimAmount = 0.5f;//灰度深浅
-    private boolean showBottom;//是否底部显示
+    private boolean showBottom = false;//是否底部显示
     private boolean outCancel = true;//是否点击外部取消
 
     @StyleRes

@@ -27,12 +27,12 @@ import java.util.List;
 
 public class SlideListDialog extends BaseDialog {
 
-    private TextView tvCancel,tvTitle,tvOk;
-    private LinearLayout llCancel,llOk;
+    private TextView tvCancel, tvTitle, tvOk;
+    private LinearLayout llCancel, llOk;
     private NumberPickerView numberPickerView;
     private String cancelText = "取消";
     private String titleText;
-    private String okText= "确定";
+    private String okText = "确定";
     private int resultPosition;
     private SlideListDialogResultListener slideListDialogResultListener;
 
@@ -107,7 +107,7 @@ public class SlideListDialog extends BaseDialog {
         return this;
     }
 
-    public interface SlideListDialogResultListener{
+    public interface SlideListDialogResultListener {
         void result(int position);
     }
 

@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public List<SelectEntity> getMultipleData() {
         List<SelectEntity> data = new ArrayList<>();
-        for (int i=0;i<20;i++){
+        for (int i=0;i<200;i++){
             SelectEntity selectEntity = new SelectEntity();
             selectEntity.setItemContent("item "+String.valueOf(i));
             data.add(selectEntity);
