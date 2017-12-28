@@ -65,6 +65,10 @@ public class BaseDialog extends Dialog {
     private void initParams() {
         Window window = getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
+        if(width < 0){
+//            width = ScreenUtils.getScreenWidth(getContext());
+            width = WindowManager.LayoutParams.WRAP_CONTENT;
+        }
         if(width == 0){
 //            width = ScreenUtils.getScreenWidth(getContext());
             width = ScreenUtils.getScreenWidth(getContext()) - 2 * DpUtil.dp2px(getContext(), margin);

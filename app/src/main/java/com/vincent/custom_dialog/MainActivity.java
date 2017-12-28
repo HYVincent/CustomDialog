@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.vincent.dialog.entity.SelectEntity;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
+import com.vincent.dialog.simple.OrdinaryMsgDialog;
 import com.vincent.dialog.simple.SingleSelectDialog;
 import com.vincent.dialog.simple.SlideListDialog;
 import com.vincent.dialog.util.MyToast;
@@ -20,11 +21,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnSlideListDialog;
+    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnSlideListDialog,btnOrdinaryMsgDialog;
     private LoadingDialog loadingDialog;
     private SingleSelectDialog singleSelectDialog;
     private MultipleSelectDialog multipleSelectDialog;
     private SlideListDialog slideListDialog;
+    private OrdinaryMsgDialog ordinaryMsgDialog;
 
 
     @Override
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMultipleSelectDialog.setOnClickListener(this);
         btnSlideListDialog = findViewById(R.id.btn_slide_list);
         btnSlideListDialog.setOnClickListener(this);
+        btnOrdinaryMsgDialog = findViewById(R.id.btn_ordinary_msg);
+        btnOrdinaryMsgDialog.setOnClickListener(this);
     }
 
     @Override
@@ -57,8 +61,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_slide_list:
                 showSlideListDialog();
                 break;
+            case R.id.btn_ordinary_msg:
+                showOrdinaryMsgDialog();
+                break;
             default:break;
         }
+    }
+
+    /**
+     * 显示一般消息
+     */
+    private void showOrdinaryMsgDialog() {
+        if(ordinaryMsgDialog == null){
+            ordinaryMsgDialog = new OrdinaryMsgDialog(MainActivity.this);
+        }
+        ordinaryMsgDialog.setWidth(0);
+        ordinaryMsgDialog.setStrTitle("温馨提示")
+                .setStrContent("有美女")
+                .setStrCancel("不需要")
+                .setStrOk("好吧")
+                .setOnActionClickListener(new OrdinaryMsgDialog.OnActionClickListener() {
+                    @Override
+                    public void doAction() {
+                        MyToast.toastMsg(MainActivity.this,"do something...");
+                    }
+                })
+                .show();
     }
 
     private void showSlideListDialog() {

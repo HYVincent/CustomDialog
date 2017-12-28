@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PulseView">
+        <attr name="dimens" format="dimension"></attr>
+        <attr name="fskfjka" format="dimension"></attr>
+    </declare-styleable>
+
+</resources>
