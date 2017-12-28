@@ -1,1 +1,1 @@
-include ':app', ':dialog', ':myview'
+include ':app', ':dialog'

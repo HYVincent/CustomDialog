@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/CustomDialog.iml" filepath="$PROJECT_DIR$/CustomDialog.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialog/dialog.iml" filepath="$PROJECT_DIR$/dialog/dialog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/myview/myview.iml" filepath="$PROJECT_DIR$/myview/myview.iml" />
     </modules>
   </component>
 </project>
