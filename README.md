@@ -1,4 +1,7 @@
 ### 自定义Dialog显示
+#### version 1.0.2
+- ordinaryMsgDialog(完成)
+- 心电图自定义View(未完成)
 
 #### version 1.0.1
 date 2017年12月26日16:47:16  
