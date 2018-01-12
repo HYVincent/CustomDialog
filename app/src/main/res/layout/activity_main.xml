@@ -16,6 +16,13 @@
         android:text="Custom Dialog" />
 
     <Button
+        android:id="@+id/btn_custom_popupwindos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Custom PopupWindows" />
+
+    <Button
         android:id="@+id/btn_custom_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_92">
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/size_12"
+        android:layout_marginLeft="@dimen/size_12"
+        android:layout_marginTop="@dimen/size_2"
+        android:background="@mipmap/frg_history_icon_more_bg"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_90">
+
+
+        <LinearLayout
+            android:id="@+id/popup_collect_ll"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_44">
+
+
+            <ImageView
+                android:layout_marginLeft="@dimen/size_12"
+                android:src="@mipmap/frg_history_icon_more_collect_yes"
+                android:layout_width="@dimen/size_21"
+                android:layout_height="@dimen/size_21" />
+
+            <TextView
+                android:text="收藏"
+                android:layout_marginLeft="@dimen/size_16"
+                android:textColor="@color/color_black_333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_1"
+            android:background="@color/color_gray_e5e5e5"/>
+
+        <LinearLayout
+            android:id="@+id/popup_delete_ll"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_44">
+
+
+            <ImageView
+                android:layout_marginLeft="@dimen/size_12"
+                android:src="@mipmap/frg_history_icon_more_delete"
+                android:layout_width="@dimen/size_21"
+                android:layout_height="@dimen/size_21" />
+
+            <TextView
+                android:text="删除"
+                android:layout_marginLeft="@dimen/size_16"
+                android:textColor="@color/color_black_333333"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

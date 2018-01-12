@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".MyApp"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -19,6 +20,7 @@
         <activity android:name=".DialogActivity"/>
         <activity android:name=".ViewActivity"/>
         <activity android:name=".ElectrocardiographActivity"/>
+        <activity android:name=".PopupWindowsActivity"/>
     </application>
 
 </manifest>
