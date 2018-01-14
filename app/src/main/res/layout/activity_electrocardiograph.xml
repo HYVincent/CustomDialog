@@ -5,15 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.vincent.custom_dialog.view.Electrocardiogram
-        android:id="@+id/e_electrocardiogram"
-        android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:layerType="software"/>
 
-    <com.vincent.custom_dialog.view.MyElectrocardiographView
-        android:id="@+id/me_myelectrocardiographview"
-        android:layout_width="match_parent"
-        android:layout_height="270dp" />
 
 </LinearLayout>

@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_50">
+
+        <Button
+            android:id="@+id/buttonPanel"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edit_query"
+            android:layout_toLeftOf="@id/buttonPanel"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_12sp"
+            android:focusable="false"
+            android:hint="afafaf"
+            android:background="@null"/>
+
+
+    </RelativeLayout>
+
     <Button
-        android:id="@+id/button_electrocardiograph"
-        android:layout_width="wrap_content"
+        android:id="@+id/open"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAllCaps="false"
-        android:text="Electrocardiograph" />
+        android:text="打开键盘" />
+
+    <Button
+        android:id="@+id/close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭键盘" />
 
 
 </LinearLayout>
