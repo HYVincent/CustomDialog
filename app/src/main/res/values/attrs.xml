@@ -2,8 +2,18 @@
 <resources>
 
     <declare-styleable name="MyElectrocardiographView">
-        <!--背景颜色-->
-        <attr name="color_bg" format="color"/>
+        <!--表格线的颜色-->
+        <attr name="BackLineColor" format="color"/>
+        <!--标题颜色-->
+        <attr name="TitleColor" format="color"/>
+        <!--波形图线的颜色-->
+        <attr name="PointerLineColor" format="color"/>
+        <!--标题文字大小-->
+        <attr name="TitleSize" format="dimension"/>
+        <!--xy轴文字大小-->
+        <attr name="XYTextSize" format="dimension"/>
+
     </declare-styleable>
+
 
 </resources>

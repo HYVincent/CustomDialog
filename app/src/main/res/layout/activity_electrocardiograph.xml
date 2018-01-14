@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+<<<<<<< HEAD
+=======
+    <com.vincent.custom_dialog.view.MyElectrocardiographBg
+        android:id="@+id/mybg"
+        android:layout_width="match_parent"
+        android:layout_height="270dp" />
+>>>>>>> d2e7649408bab643454e6eb73ff152cd3152b3b4
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:background="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.vincent.custom_dialog.view.EcgView
+            android:id="@+id/ecg_view"
+            android:layout_width="match_parent"
+            android:layout_height="270dp" />
+
+    </LinearLayout>
 
 
 

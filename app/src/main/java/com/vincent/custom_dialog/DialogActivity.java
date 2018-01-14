@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.elvishew.xlog.XLog;
 import com.vincent.dialog.entity.SelectEntity;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
@@ -60,6 +61,7 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
         switch (view.getId()){
             case R.id.btn_loading:
                 Log.d(TAG, "onClick: click..");
+                XLog.d("test.......");
                 showLoadingDialog();
                 break;
             case R.id.btn_single_select:
