@@ -6,14 +6,6 @@
     android:layout_height="match_parent">
 
 
-<<<<<<< HEAD
-=======
-    <com.vincent.custom_dialog.view.MyElectrocardiographBg
-        android:id="@+id/mybg"
-        android:layout_width="match_parent"
-        android:layout_height="270dp" />
->>>>>>> d2e7649408bab643454e6eb73ff152cd3152b3b4
-
 
     <LinearLayout
         android:visibility="gone"

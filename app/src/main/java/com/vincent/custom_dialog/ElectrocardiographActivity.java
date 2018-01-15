@@ -5,12 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-<<<<<<< HEAD
-=======
-import com.vincent.custom_dialog.view.EcgView;
-import com.vincent.custom_dialog.view.Electrocardiogram;
-
->>>>>>> d2e7649408bab643454e6eb73ff152cd3152b3b4
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,29 +21,14 @@ import java.util.List;
 public class ElectrocardiographActivity extends AppCompatActivity {
 
     private String data;
-<<<<<<< HEAD
-=======
 
-    private EcgView ecgView;
->>>>>>> d2e7649408bab643454e6eb73ff152cd3152b3b4
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electrocardiograph);
         data = ReadAssetsUtils.readAssetsTextReturnStr(this,"StarCareData");
-<<<<<<< HEAD
-=======
-        electrocardiogram = findViewById(R.id.e_electrocardiogram);
-        electrocardiogram.addData();
-        electrocardiogram.setElectrocardiogramData(getData(data));
-        electrocardiogram.startDraw();
-        ecgView = findViewById(R.id.ecg_view);
         List<Integer> datas = getData2(ReadAssetsUtils.readAssetsTextReturnStr(this,"ecgdata"));
-        for (int i=0;i<datas.size();i++){
-            EcgView.addEcgData0(datas.get(i));
-            EcgView.addEcgData0(datas.get(i));
-        }
     }
 
     private List<Integer> getData2(String data) {
@@ -71,6 +50,5 @@ public class ElectrocardiographActivity extends AppCompatActivity {
         }
         Log.d(getClass().getSimpleName(), "getData: "+datas.size());
         return datas;
->>>>>>> d2e7649408bab643454e6eb73ff152cd3152b3b4
     }
 }
