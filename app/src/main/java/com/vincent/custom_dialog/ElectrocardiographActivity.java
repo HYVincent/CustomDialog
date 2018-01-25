@@ -21,6 +21,7 @@ public class ElectrocardiographActivity extends AppCompatActivity {
 
     private String data;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +29,7 @@ public class ElectrocardiographActivity extends AppCompatActivity {
         data = ReadAssetsUtils.readAssetsTextReturnStr(this,"StarCareData");
     }
 
-    private List<Integer> getData2(String data) {
-        List<Integer> datas = new ArrayList<>();
-        String[] strarr = data.split(",");
-        for (int i=0;i<strarr.length;i++){
-            datas.add(Integer.valueOf(strarr[i]));
-        }
-        Log.d(getClass().getSimpleName(), "getData: "+datas.size());
-        return datas;
-    }
+
+
 
 }
