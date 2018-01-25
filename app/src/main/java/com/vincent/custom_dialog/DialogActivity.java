@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.elvishew.xlog.XLog;
 import com.vincent.dialog.entity.SelectEntity;
+import com.vincent.dialog.simple.InputContentDialog;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
 import com.vincent.dialog.simple.OrdinaryMsgDialog;
@@ -33,12 +34,13 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
 
     private static final String TAG = DialogActivity.class.getSimpleName();
 
-    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnSlideListDialog,btnOrdinaryMsgDialog;
+    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnSlideListDialog,btnOrdinaryMsgDialog,btnInputContentDialog;
     private LoadingDialog loadingDialog;
     private SingleSelectDialog singleSelectDialog;
     private MultipleSelectDialog multipleSelectDialog;
     private SlideListDialog slideListDialog;
     private OrdinaryMsgDialog ordinaryMsgDialog;
+    private InputContentDialog inputContentDialog;
     
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
         btnSlideListDialog.setOnClickListener(this);
         btnOrdinaryMsgDialog = findViewById(R.id.btn_ordinary_msg);
         btnOrdinaryMsgDialog.setOnClickListener(this);
+        btnInputContentDialog = findViewById(R.id.btn_input_content);
+        btnInputContentDialog.setOnClickListener(this);
     }
 
     @Override
@@ -76,9 +80,29 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
             case R.id.btn_ordinary_msg:
                 showOrdinaryMsgDialog();
                 break;
+            case R.id.btn_input_content:
+                showInputContentDialog();
+                break;
             default:break;
         }
     }
+
+    /**
+     * 显示输入内容dialog，键盘弹出在dialog的下方
+     */
+    private void showInputContentDialog() {
+        if(inputContentDialog == null){
+            inputContentDialog = new InputContentDialog(DialogActivity.this);
+        }
+        inputContentDialog.setCheckNull(true,"请输入")
+                .setInputContentListener(new InputContentDialog.InputContentListener() {
+                    @Override
+                    public void input(String content) {
+                        MyToast.toastMsg(DialogActivity.this,content);
+                    }
+                }).show();
+    }
+
     /**
      * 显示一般消息
      */
