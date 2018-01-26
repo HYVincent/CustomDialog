@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomDialog.iml" filepath="$PROJECT_DIR$/CustomDialog.iml" />
       <module fileurl="file://D:\MyWork\Common Libaray\CustomDialog\CustomDialog.iml" filepath="D:\MyWork\Common Libaray\CustomDialog\CustomDialog.iml" />
-      <module fileurl="file://D:\MyWork\Common Demo\CustomDialog\CustomDialog.iml" filepath="D:\MyWork\Common Demo\CustomDialog\CustomDialog.iml" />
       <module fileurl="file://D:\CommonDemo\CustomDialog\.idea\CustomDialog.iml" filepath="D:\CommonDemo\CustomDialog\.idea\CustomDialog.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialog/dialog.iml" filepath="$PROJECT_DIR$/dialog/dialog.iml" />

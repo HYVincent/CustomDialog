@@ -36,6 +36,9 @@ public class InputContentDialog extends BaseDialog {
     public InputContentDialog setCheckNull(boolean checkNull,String hintMsg) {
         isCheckNull = checkNull;
         this.hintMsg = hintMsg;
+        if(mEditText != null){
+            mEditText.setHint(hintMsg);
+        }
         return this;
     }
 
@@ -55,6 +58,7 @@ public class InputContentDialog extends BaseDialog {
         setContentView(R.layout.library_layout_input_content);
         setShowBottom(true);
         mEditText = findViewById(R.id.library_input_content_et);
+        mEditText.setHint(hintMsg);
         mTextView = findViewById(R.id.library_input_content_enter);
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
