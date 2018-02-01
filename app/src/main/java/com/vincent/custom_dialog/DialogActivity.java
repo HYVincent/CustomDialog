@@ -109,6 +109,7 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
                     @Override
                     public void onCancel() {
                         TimeUtils.cancelTimeTask();
+                        progress =0;
                     }
                 }).show();
         TimeUtils.startTime(0, 1000, 1000, 5, new TimeUtils.TimeListener() {
