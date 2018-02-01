@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.elvishew.xlog.XLog;
 import com.vincent.dialog.entity.SelectEntity;
+import com.vincent.dialog.simple.FileUploadProgressDialog;
 import com.vincent.dialog.simple.InputContentDialog;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
@@ -34,13 +35,15 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
 
     private static final String TAG = DialogActivity.class.getSimpleName();
 
-    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnSlideListDialog,btnOrdinaryMsgDialog,btnInputContentDialog;
+    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,
+            btnSlideListDialog,btnOrdinaryMsgDialog,btnInputContentDialog,btnFileUploadProgressDialog;
     private LoadingDialog loadingDialog;
     private SingleSelectDialog singleSelectDialog;
     private MultipleSelectDialog multipleSelectDialog;
     private SlideListDialog slideListDialog;
     private OrdinaryMsgDialog ordinaryMsgDialog;
     private InputContentDialog inputContentDialog;
+    private FileUploadProgressDialog fileUploadProgressDialog;
     
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +61,8 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
         btnOrdinaryMsgDialog.setOnClickListener(this);
         btnInputContentDialog = findViewById(R.id.btn_input_content);
         btnInputContentDialog.setOnClickListener(this);
+        btnFileUploadProgressDialog = findViewById(R.id.btn_file_upload);
+        btnFileUploadProgressDialog.setOnClickListener(this);
     }
 
     @Override
@@ -83,8 +88,46 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
             case R.id.btn_input_content:
                 showInputContentDialog();
                 break;
+            case R.id.btn_file_upload:
+                showFileUploadProgressDialog();
+                break;
             default:break;
         }
+    }
+
+    private int progress = 0;
+
+    private void showFileUploadProgressDialog() {
+        if(fileUploadProgressDialog == null){
+            fileUploadProgressDialog = new FileUploadProgressDialog(DialogActivity.this);
+            fileUploadProgressDialog.setOutCancel(false);
+        }
+        fileUploadProgressDialog.setStrTitle("正在上传..")
+                .setStrCancel("取消上传")
+                .setCurrentProgress(progress)
+                .setCancelUploadFileListener(new FileUploadProgressDialog.CancelUploadFileListener() {
+                    @Override
+                    public void onCancel() {
+                        TimeUtils.cancelTimeTask();
+                    }
+                }).show();
+        TimeUtils.startTime(0, 1000, 1000, 5, new TimeUtils.TimeListener() {
+            @Override
+            public void doAction(int index) {
+                if(progress <100){
+                    progress++;
+                }else {
+                    progress = 0;
+                }
+                Log.d(TAG, "doAction: progress ="+progress);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        fileUploadProgressDialog.setCurrentProgress(progress);
+                    }
+                });
+            }
+        });
     }
 
     /**

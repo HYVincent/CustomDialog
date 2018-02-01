@@ -45,4 +45,11 @@
         android:layout_height="wrap_content"
         android:text="Ordinary Msg Dialog"/>
 
+    <Button
+        android:id="@+id/btn_file_upload"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="File upload Dialog"/>
+
 </LinearLayout>
