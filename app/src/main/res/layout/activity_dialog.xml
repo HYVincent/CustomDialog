@@ -52,4 +52,11 @@
         android:layout_height="wrap_content"
         android:text="File upload Dialog"/>
 
+    <Button
+        android:textAllCaps="false"
+        android:text="Input Centent Center Dilog"
+        android:id="@+id/btn_input_content_center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
