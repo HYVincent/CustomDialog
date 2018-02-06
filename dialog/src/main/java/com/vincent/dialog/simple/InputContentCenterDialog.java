@@ -48,6 +48,7 @@ public class InputContentCenterDialog extends BaseDialog {
                 case 0x12:
                     EditTextUtils.closeKeyboard((Activity) mContext);
                     break;
+                default:break;
             }
         }
     };
