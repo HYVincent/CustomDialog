@@ -1,7 +1,10 @@
 package com.vincent.dialog.simple;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 
 import com.vincent.dialog.BaseDialog;
 import com.vincent.dialog.R;
+import com.vincent.dialog.util.EditTextUtils;
 
 /**
  * @author Administrator QQ:1032006226
@@ -30,7 +34,23 @@ public class InputContentCenterDialog extends BaseDialog {
     private InputContentDialogListener inputContentDialogListener;
     //是否判断内容为空
     private boolean isCheckNull = false;
+    private Context mContext;
     private static final String TAG = InputContentCenterDialog.class.getSimpleName();
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 0x11:
+                    EditTextUtils.openKeyboard(mContext,etInput);
+                    break;
+                case 0x12:
+                    EditTextUtils.closeKeyboard((Activity) mContext);
+                    break;
+            }
+        }
+    };
 
     public InputContentCenterDialog setCheckNull(boolean checkNull) {
         isCheckNull = checkNull;
@@ -64,6 +84,23 @@ public class InputContentCenterDialog extends BaseDialog {
 
     public InputContentCenterDialog(@NonNull Context context) {
         super(context);
+        this.mContext = context;
+    }
+
+    @Override
+    public void show() {
+        super.show();
+        Message message = Message.obtain();
+        message.what = 0x11;
+        handler.sendMessageDelayed(message,100);
+    }
+
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        Message message = Message.obtain();
+        message.what = 0x12;
+        handler.sendMessageDelayed(message,100);
     }
 
     @Override
@@ -102,6 +139,7 @@ public class InputContentCenterDialog extends BaseDialog {
             }
         });
     }
+
 
     public interface InputContentDialogListener{
 
