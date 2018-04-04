@@ -15,6 +15,7 @@ import com.vincent.dialog.simple.InputContentDialog;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
 import com.vincent.dialog.simple.OrdinaryMsgDialog;
+import com.vincent.dialog.simple.SelectColorDialog;
 import com.vincent.dialog.simple.SingleSelectDialog;
 import com.vincent.dialog.simple.SlideListDialog;
 import com.vincent.dialog.util.MyToast;
@@ -37,7 +38,7 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
     private static final String TAG = DialogActivity.class.getSimpleName();
 
     private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnInputContentCenterDialog,
-            btnSlideListDialog,btnOrdinaryMsgDialog,btnInputContentDialog,btnFileUploadProgressDialog;
+            btnSlideListDialog,btnOrdinaryMsgDialog,btnInputContentDialog,btnFileUploadProgressDialog,btnSelectColorDialog;
     private LoadingDialog loadingDialog;
     private SingleSelectDialog singleSelectDialog;
     private MultipleSelectDialog multipleSelectDialog;
@@ -46,7 +47,8 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
     private InputContentDialog inputContentDialog;
     private FileUploadProgressDialog fileUploadProgressDialog;
     private InputContentCenterDialog inputContentCenterDialog;
-    
+    private SelectColorDialog selectColorDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,8 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
         btnFileUploadProgressDialog.setOnClickListener(this);
         btnInputContentCenterDialog = findViewById(R.id.btn_input_content_center);
         btnInputContentCenterDialog.setOnClickListener(this);
+        btnSelectColorDialog = findViewById(R.id.btn_select_color);
+        btnSelectColorDialog.setOnClickListener(this);
     }
 
     @Override
@@ -98,8 +102,25 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
             case R.id.btn_input_content_center:
                 showInputContentCenterDialog();
                 break;
+            case R.id.btn_select_color:
+                showSelectColorDialog();
+                break;
             default:break;
         }
+    }
+
+    private void showSelectColorDialog() {
+        if(selectColorDialog == null){
+            selectColorDialog = new SelectColorDialog(this);
+        }
+        selectColorDialog.setMargin(20);
+        selectColorDialog.setSelectResultListener(new SelectColorDialog.ColorSelectResultListener() {
+            @Override
+            public void select(String selectColor) {
+                Log.d(TAG, "select: "+selectColor);
+                MyToast.toastMsg(DialogActivity.this,selectColor);
+            }
+        }).show();
     }
 
     /**
@@ -292,5 +313,5 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
         }
         return data;
     }
-    
+
 }
