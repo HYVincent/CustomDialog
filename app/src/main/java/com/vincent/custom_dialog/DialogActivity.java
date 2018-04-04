@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.elvishew.xlog.XLog;
 import com.vincent.dialog.entity.SelectEntity;
 import com.vincent.dialog.simple.FileUploadProgressDialog;
+import com.vincent.dialog.simple.InputContentCenterDialog;
 import com.vincent.dialog.simple.InputContentDialog;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
@@ -35,7 +36,7 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
 
     private static final String TAG = DialogActivity.class.getSimpleName();
 
-    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,
+    private Button btnLoadingDialog,btnSingleSelectDialog,btnMultipleSelectDialog,btnInputContentCenterDialog,
             btnSlideListDialog,btnOrdinaryMsgDialog,btnInputContentDialog,btnFileUploadProgressDialog;
     private LoadingDialog loadingDialog;
     private SingleSelectDialog singleSelectDialog;
@@ -44,6 +45,7 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
     private OrdinaryMsgDialog ordinaryMsgDialog;
     private InputContentDialog inputContentDialog;
     private FileUploadProgressDialog fileUploadProgressDialog;
+    private InputContentCenterDialog inputContentCenterDialog;
     
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,6 +65,8 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
         btnInputContentDialog.setOnClickListener(this);
         btnFileUploadProgressDialog = findViewById(R.id.btn_file_upload);
         btnFileUploadProgressDialog.setOnClickListener(this);
+        btnInputContentCenterDialog = findViewById(R.id.btn_input_content_center);
+        btnInputContentCenterDialog.setOnClickListener(this);
     }
 
     @Override
@@ -91,8 +95,37 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
             case R.id.btn_file_upload:
                 showFileUploadProgressDialog();
                 break;
+            case R.id.btn_input_content_center:
+                showInputContentCenterDialog();
+                break;
             default:break;
         }
+    }
+
+    /**
+     * 屏幕中心弹出dialog
+     */
+    private void showInputContentCenterDialog() {
+        if(inputContentCenterDialog == null){
+            inputContentCenterDialog = new InputContentCenterDialog(DialogActivity.this);
+        }
+        inputContentCenterDialog.setStrTitle("title")
+                .setStrHintText("请输入内容")
+                .setStrCancel("取消")
+                .setStrGo("完成")
+                .setCheckNull(true)
+                .setInputContentDialogListener(new InputContentCenterDialog.InputContentDialogListener() {
+                    @Override
+                    public void onClick(String content) {
+                        MyToast.toastMsg(DialogActivity.this,content);
+                    }
+
+                    @Override
+                    public void onConentNull() {
+                        MyToast.toastMsg(DialogActivity.this,"请输入内容");
+                    }
+                })
+                .show();
     }
 
     private int progress = 0;
