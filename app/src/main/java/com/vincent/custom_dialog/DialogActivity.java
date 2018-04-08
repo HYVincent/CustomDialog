@@ -111,7 +111,7 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
 
     private void showSelectColorDialog() {
         if(selectColorDialog == null){
-            selectColorDialog = new SelectColorDialog(this);
+            selectColorDialog = new SelectColorDialog(this,R.color.color_gray_999999);
         }
         selectColorDialog.setMargin(20);
         selectColorDialog.setSelectResultListener(new SelectColorDialog.ColorSelectResultListener() {
