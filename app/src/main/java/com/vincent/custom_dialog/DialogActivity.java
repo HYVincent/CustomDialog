@@ -15,6 +15,7 @@ import com.vincent.dialog.simple.InputContentDialog;
 import com.vincent.dialog.simple.LoadingDialog;
 import com.vincent.dialog.simple.MultipleSelectDialog;
 import com.vincent.dialog.simple.OrdinaryMsgDialog;
+import com.vincent.dialog.simple.RecordStyleDialog;
 import com.vincent.dialog.simple.SelectColorDialog;
 import com.vincent.dialog.simple.SingleSelectDialog;
 import com.vincent.dialog.simple.SlideListDialog;
@@ -48,6 +49,7 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
     private FileUploadProgressDialog fileUploadProgressDialog;
     private InputContentCenterDialog inputContentCenterDialog;
     private SelectColorDialog selectColorDialog;
+    private RecordStyleDialog recordStyleDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -105,8 +107,16 @@ public class DialogActivity extends AppCompatActivity  implements View.OnClickLi
             case R.id.btn_select_color:
                 showSelectColorDialog();
                 break;
+            case R.id.btn_record:
+                showRecordDialog();
+                break;
             default:break;
         }
+    }
+
+    /*录音*/
+    private void showRecordDialog() {
+
     }
 
     private void showSelectColorDialog() {
